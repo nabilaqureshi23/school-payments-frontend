@@ -627,7 +627,7 @@ function SchoolTransactions() {
                         {t.order?.school_id || '-'}
                       </td>
                       <td style={{ padding: '16px 24px', fontSize: '14px', color: '#6b7280' }}>
-                        {t.gateway || '-'}
+                        {t.order?.gateway_name || '-'}
                       </td>
                       <td style={{ padding: '16px 24px', fontSize: '14px', color: '#111827', fontWeight: '500' }}>
                         ₹{t.order_amount || 0}
@@ -647,7 +647,7 @@ function SchoolTransactions() {
                         })()}
                       </td>
                       <td style={{ padding: '16px 24px', fontSize: '14px', color: '#6b7280' }}>
-                        {t.custom_order_id || '-'}
+                        {t.order?.custom_order_id || '-'}
                       </td>
                       <td style={{ padding: '16px 24px', fontSize: '14px', color: '#6b7280' }}>
                         {t.payment_time ? new Date(t.payment_time).toLocaleString("en-IN") : '-'}

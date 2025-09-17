@@ -143,7 +143,7 @@ const CheckStatus = () => {
                 <div style={styles.detailIcon}>🏛️</div>
                 <div style={styles.detailLabel}>Gateway</div>
               </div>
-              <div style={styles.detailValue}>{status.gateway || "-"}</div>
+              <div style={styles.detailValue}>{status.order?.gateway_name || "-"}</div>
             </div>
 
             <div style={styles.detailCard}>
