@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Search, Filter, ChevronDown, ChevronUp, Download, RefreshCw } from "lucide-react";
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = import.meta.env.VITE_API_URL||"http://localhost:3000";
 
 function ModernTransactionsOverview() {
   const [transactions, setTransactions] = useState([]);
