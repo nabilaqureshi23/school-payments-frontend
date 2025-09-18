@@ -67,7 +67,7 @@
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/school-payments-frontend.git
+git clone https://github.com/nabilaqureshi23/school-payments-frontend.git
 cd school-payments-frontend
 ```
 
@@ -99,8 +99,6 @@ This project is already deployed at 👉 [Live Demo](https://school-payments-fro
 
 
 ## 📸 Screenshots
-
-*(Add screenshots here once you capture them)*
 
 * Login Page
   <img width="1871" height="857" alt="image" src="https://github.com/user-attachments/assets/f8c17a3b-2737-4f34-9eda-7080ef889a0c" />
