@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import api from "../services/api";
 const CheckStatus = () => {
   const [orderId, setOrderId] = useState("");
   const [status, setStatus] = useState(null);
@@ -15,12 +15,8 @@ const CheckStatus = () => {
       setLoading(true);
 
       const token = localStorage.getItem("token");
-      const res = await axios.get(
-        `http://localhost:3000/transaction-status/${orderId}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+       const res = await api.get(`/transaction-status/${orderId}`);
+      setStatus(res.data);
 
       if (res.data.success) {
         setStatus(res.data.status);
