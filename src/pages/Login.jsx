@@ -10,11 +10,12 @@ export default function Login() {
 
   // 🔹 If already logged in, redirect straight to Overview
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      navigate("/");
-    }
-  }, [navigate]);
+  const token = localStorage.getItem("token");
+  if (token) {
+    navigate("/", { replace: true });
+  }
+}, [navigate]);
+
 
   const submit = async (e) => {
     e.preventDefault();
@@ -22,10 +23,12 @@ export default function Login() {
     try {
       const res = await api.post("/auth/login", { email, password });
 
-      if (res.data?.access_token) {
-        localStorage.setItem("token", res.data.access_token);
-        navigate("/"); // ✅ go to Overview
-      } else {
+     if (res.data?.access_token) {
+  localStorage.setItem("token", res.data.access_token);
+  navigate("/", { replace: true }); // ✅ stays on overview, no back to login
+}
+
+       else {
         setError(res.data?.message || "Login failed");
       }
     } catch (err) {
