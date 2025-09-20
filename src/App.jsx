@@ -11,22 +11,20 @@ export default function App() {
     return localStorage.getItem("darkMode") === "true";
   });
 
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    !!localStorage.getItem("token")
-  );
-
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
+  const isAuthenticated = !!localStorage.getItem("token");
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
       <Routes>
-        {/* Public */}
-        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+        {/* Public Route - No Navbar */}
+        <Route path="/login" element={<Login />} />
 
-        {/* Protected */}
+        {/* Protected Routes - With Navbar */}
         <Route
           path="/"
           element={
