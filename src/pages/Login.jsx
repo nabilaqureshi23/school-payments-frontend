@@ -12,7 +12,7 @@ export default function Login() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      navigate("/dashboard");
+      navigate("/");
     }
   }, [navigate]);
 
@@ -24,7 +24,7 @@ export default function Login() {
 
       if (res.data?.access_token) {
         localStorage.setItem("token", res.data.access_token);
-        navigate("/dashboard"); // ✅ go to Overview
+        navigate("/"); // ✅ go to Overview page
       } else {
         setError(res.data?.message || "Login failed");
       }
@@ -111,11 +111,10 @@ export default function Login() {
             text-align: center;
             border-left: 4px solid #3b82f6;
           }
-            .brand-logo {
+          .brand-logo {
             text-align: center;
             margin-bottom: 32px;
           }
-
           .brand-text {
             font-size: 24px;
             font-weight: 700;
