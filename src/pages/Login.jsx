@@ -24,7 +24,7 @@ export default function Login() {
 
       if (res.data?.access_token) {
         localStorage.setItem("token", res.data.access_token);
-        navigate("/"); // ✅ go to Overview
+        navigate("/dashboard"); // ✅ go to Overview
       } else {
         setError(res.data?.message || "Login failed");
       }
