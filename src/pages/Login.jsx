@@ -24,7 +24,7 @@ export default function Login() {
 
       if (res.data?.access_token) {
         localStorage.setItem("token", res.data.access_token);
-        navigate("/"); // ✅ go to Overview page
+        navigate("/"); // ✅ go to Overview
       } else {
         setError(res.data?.message || "Login failed");
       }
@@ -111,10 +111,11 @@ export default function Login() {
             text-align: center;
             border-left: 4px solid #3b82f6;
           }
-          .brand-logo {
+            .brand-logo {
             text-align: center;
             margin-bottom: 32px;
           }
+
           .brand-text {
             font-size: 24px;
             font-weight: 700;
