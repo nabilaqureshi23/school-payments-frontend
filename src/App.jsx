@@ -34,7 +34,7 @@ export default function App() {
                 <Overview />
               </>
             ) : (
-              <Navigate to="/login" />
+              <Navigate to="/" />
             )
           }
         />
@@ -48,7 +48,7 @@ export default function App() {
                 <SchoolTransactions />
               </>
             ) : (
-              <Navigate to="/login" />
+              <Navigate to="/" />
             )
           }
         />
@@ -62,7 +62,7 @@ export default function App() {
                 <CheckStatus />
               </>
             ) : (
-              <Navigate to="/login" />
+              <Navigate to="/" />
             )
           }
         />
