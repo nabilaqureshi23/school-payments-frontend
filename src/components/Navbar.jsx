@@ -7,7 +7,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
   
   const logout = () => {
     localStorage.removeItem("token");
-    navigate("/");
+    navigate("/login");
   };
 
   const isActiveLink = (path) => {
