@@ -11,18 +11,21 @@ export default function App() {
     return localStorage.getItem("darkMode") === "true";
   });
 
+  // 🔹 Token in state
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
     localStorage.setItem("darkMode", darkMode);
+    document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
-  const isAuthenticated = !!localStorage.getItem("token");
+  const isAuthenticated = !!token;
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
       <Routes>
-        {/* Public Route */}
-        <Route path="/" element={<Login />} />
+        {/* Public Route - Login */}
+        <Route path="/" element={<Login setToken={setToken} />} />
 
         {/* Protected Routes */}
         <Route

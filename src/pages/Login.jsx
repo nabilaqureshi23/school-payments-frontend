@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
-export default function Login() {
+
+export default function Login({ setToken }) {
+  console.log("setToken from App.jsx:", setToken);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,9 +20,10 @@ export default function Login() {
       const res = await api.post("/auth/login", { email, password });
 
       if (res.data?.access_token) {
-          localStorage.setItem("token", res.data.access_token);
-           navigate("/dashboard"); // ✅ redirect to Overview
-      }else {
+        localStorage.setItem("token", res.data.access_token);
+        setToken(res.data.access_token); // ✅ update state
+        navigate("/dashboard"); // ✅ go to dashboard
+      } else {
         setError(res.data?.message || "Login failed");
       }
     } catch (err) {
