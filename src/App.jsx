@@ -21,12 +21,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
       <Routes>
-        {/* Public Route - No Navbar */}
-        <Route path="/login" element={<Login />} />
+        {/* Public Route */}
+        <Route path="/" element={<Login />} />
 
-        {/* Protected Routes - With Navbar */}
+        {/* Protected Routes */}
         <Route
-          path="/"
+          path="/dashboard"
           element={
             isAuthenticated ? (
               <>
@@ -34,7 +34,7 @@ export default function App() {
                 <Overview />
               </>
             ) : (
-              <Navigate to="/login" />
+              <Navigate to="/" />
             )
           }
         />
@@ -48,7 +48,7 @@ export default function App() {
                 <SchoolTransactions />
               </>
             ) : (
-              <Navigate to="/login" />
+              <Navigate to="/" />
             )
           }
         />
@@ -62,13 +62,13 @@ export default function App() {
                 <CheckStatus />
               </>
             ) : (
-              <Navigate to="/login" />
+              <Navigate to="/" />
             )
           }
         />
 
         {/* Catch-all */}
-        <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} />} />
+        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard" : "/"} />} />
       </Routes>
     </div>
   );
